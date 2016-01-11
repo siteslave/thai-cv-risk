@@ -31,7 +31,12 @@ function createWindow () {
       filters: [{ name: 'Text File', extensions: ['txt'] }]
     });
 
-    event.returnValue = file;
+    if (file) {
+      event.returnValue = file;
+    } else {
+      event.returnValue = null;
+    }
+
   })
 }
 

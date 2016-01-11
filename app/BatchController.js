@@ -13,14 +13,17 @@
 
       $scope.openFile = () => {
         let file = ipcRenderer.sendSync('open-file');
-        $scope.trueFileName = file;
-
-        $scope.fileName = path.basename(file);
+        if (file) {
+          $scope.trueFileName = file;
+          $scope.fileName = path.basename(file);
+        } else {
+          // no file
+        }
       };
 
       $scope.process = () => {
         if ($scope.fileName) {
-          console.log($scope.trueFileName[0]);
+          
           ThaiCvRisk.toJson($scope.trueFileName[0])
           .then((data) => {
             //console.log(data);
