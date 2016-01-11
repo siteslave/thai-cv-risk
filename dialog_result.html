@@ -1,0 +1,61 @@
+<md-dialog aria-label="ผลการประเมินความเสี่ยง"  ng-cloak>
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>ผลการประเมินความเสี่ยง</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon aria-label="Close dialog">
+            <i class="material-icons">clear</i>
+          </md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content class="bg-gray">
+      <div class="md-dialog-content">
+
+        <md-card>
+          <md-card-header>
+            <md-card-avatar>
+              <md-icon class="md-avatar-icon">
+                <i class="material-icons">compare</i>
+              </md-icon>
+            </md-card-avatar>
+            <md-card-header-text>
+              <span class="mdi-title">ผลการประเมินความเสี่ยง</span>
+              <span class="md-subhead">เป็นผลการประเมินเบื้องต้น</span>
+
+            </md-card-header-text>
+          </md-card-header>
+
+          <md-card-content>
+            ความเสี่ยงต่อการเกิดโรคเส้นเลือดหัวใจและหลอดเลือดในระยะเวลา 10 ปีของท่านเท่ากับ  <strong>{{ totalRisk }}%</strong>
+            <strong>{{ msgRiskType }}</strong>
+            <strong>{{ msgRiskLevel }}</strong> เท่าของคนไทยเพศเดียวกัน อายุเท่ากัน และปราศจากปัจจัยเสี่ยง
+          </md-card-content>
+
+        </md-card>
+
+
+        <md-card>
+          <md-card-header>
+            <md-card-avatar>
+              <md-icon class="md-avatar-icon">
+                <i class="material-icons">insert_comment</i>
+              </md-icon>
+            </md-card-avatar>
+            <md-card-header-text>
+              <span class="mdi-title">คำแนะนำการปฏิบัติตัว</span>
+              <span class="md-subhead">การปฏิบัติตัวเบื้องต้น ในการใช้ชีวิตประจำวัน</span>
+            </md-card-header-text>
+          </md-card-header>
+
+          <md-card-content>
+            {{ msgRiskResolve }}
+          </md-card-content>
+        </md-card>
+
+      </div>
+    </md-dialog-content>
+  </form>
+</md-dialog>

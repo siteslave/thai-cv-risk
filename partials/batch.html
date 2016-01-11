@@ -1,0 +1,57 @@
+<div layout-padding>
+  <md-card>
+    <md-card-header>
+      <md-card-avatar>
+        <md-icon class="md-avatar-icon">
+          <i class="material-icons">menu</i>
+        </md-icon>
+      </md-card-avatar>
+      <md-card-header-text>
+        <span class="mdi-title">Batch Process</span>
+        <span class="md-subhead">ประมวลผลแบบกลุ่ม</span>
+      </md-card-header-text>
+    </md-card-header>
+
+    <md-card-content>
+      <div layout="row">
+        <md-input-container class="md-block" flex-gt-xs>
+          <label>File (.txt)</label>
+          <input ng-model="fileName" ng-disabled="true">
+        </md-input-container>
+        <md-button class="md-primary" ng-click="openFile()">Browse...</md-button>
+        <md-button class="md-warn" ng-click="process()">Process</md-button>
+      </div>
+
+      <md-table-container>
+        <table md-table ng-model="selected" md-progress="promise">
+          <thead md-head md-order="query.order" md-on-reorder="onReorder">
+          <tr md-row>
+            <th md-column >#</th>
+            <th md-column md-order-by="HN"><span>HN</span></th>
+            <th md-column>ชื่อ - สกุล</th>
+            <th md-column md-numeric>อายุ(ปี)</th>
+            <th md-column md-numeric>คะแนน(%)</th>
+            <th md-column><span>ระดับ</span></th>
+            <!--<th md-column><span>การปฏิบัติตัว</span></th>-->
+          </tr>
+          </thead>
+          <tbody md-body>
+          <tr md-row ng-if="!risks.length">
+            <td md-cell colspan="6">ไม่พบรายการ</td>
+          </tr>
+          <tr md-row ng-if="risks.length" md-select="risk" md-select-id="{{ risk.name }}" ng-repeat="risk in risks">
+            <td md-cell>{{ $index + 1 }}</td>
+            <td md-cell>{{ risk.hn }}</td>
+            <td md-cell>{{ risk.name }}</td>
+            <td md-cell>{{ risk.age | number }}</td>
+            <td md-cell>{{ risk.score | number: 2 }}</td>
+            <td md-cell><span ng-class="{'green': risk.score < 10, 'yellow': risk.score >=10 && risk.score < 20, 'orange': risk.score >=20 && risk.score < 30, 'red': risk.score >=30 && risk.score < 40, 'darkRed': risk.score >= 40}">{{ risk.level }}</span></td>
+            <!--<td md-cell>{{ risk.resolve }}</td>-->
+          </tr>
+          </tbody>
+        </table>
+      </md-table-container>
+
+    </md-card-content>
+  </md-card>
+</div>

@@ -1,0 +1,153 @@
+<div layout-padding>
+  <md-card>
+    <md-card-header>
+      <md-card-avatar>
+        <md-icon class="md-avatar-icon">
+          <i class="material-icons">menu</i>
+        </md-icon>
+      </md-card-avatar>
+      <md-card-header-text>
+        <span class="mdi-title">ข้อมูลที่จำเป็น</span>
+        <span class="md-subhead">จำเป็นต้องระบุทุกช่อง</span>
+      </md-card-header-text>
+    </md-card-header>
+
+    <div layout="row">
+      <div flex-xs flex="30">
+        <md-input-container>
+          <label>อายุ (ปี)</label>
+          <md-select ng-model="age">
+            <md-option ng-repeat="age in ages" value="{{age.val}}">
+              {{age.name}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+      </div>
+      <div flex-xs flex="30">
+        <md-input-container>
+          <label>เพศ</label>
+          <md-select ng-model="sex">
+            <md-option ng-repeat="sex in sexes" value="{{sex.val}}">
+              {{sex.name}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+      </div>
+
+    </div>
+
+    <div layout="row">
+      <div flex-xs flex="30">
+        <md-checkbox ng-model="isSmoke" aria-label="สูบบุหรี่">
+          สูบบุหรี่อยู่
+        </md-checkbox>
+      </div>
+      <div flex-xs flex="30">
+        <md-checkbox ng-model="isDm" aria-label="เป็นโรคเบาหวาน">
+          เป็นโรคเบาหวาน
+        </md-checkbox>
+      </div>
+    </div>
+
+    <div layout="row">
+      <div flex-xs flex="100">
+        <div layout>
+          <div flex="30" layout layout-align="left center">
+            <span class="md-body-1">ความดันโลหิตตัวบน [<strong>{{ sbp | number }}</strong>]</span>
+          </div>
+          <md-slider class="md-primary" flex md-discrete ng-model="sbp" step="1" min="80" max="200" aria-label="SBP">
+          </md-slider>
+        </div>
+
+      </div>
+    </div>
+
+  </md-card>
+
+  <md-card>
+    <md-card-header>
+      <md-card-avatar>
+        <md-icon class="md-avatar-icon">
+          <i class="material-icons">assignment</i>
+        </md-icon>
+      </md-card-avatar>
+      <md-card-header-text>
+        <span class="mdi-title">ข้อมูลสนับสนุนอื่นๆ</span>
+        <span class="md-subhead">ใช้ประกอบการคำนวณเพิ่มเติม</span>
+      </md-card-header-text>
+    </md-card-header>
+
+
+    <div layout="row">
+      <div flex-xs flex="100">
+        <md-switch ng-model="useLab" aria-label="ใช้ผลตรวจทางห้องปฏิบัติการ">
+          ใช้ผลตรวจทางห้องปฏิบัติการ
+        </md-switch>
+      </div>
+    </div>
+
+    <div layout="row" ng-show="useLab">
+      <div flex-xs flex="100">
+        <div layout>
+          <div flex="40" layout layout-align="left center">
+            <span class="md-body-1">โคเรสเตอรอลรวม (Cholesterol) [<strong>{{ totalCholesterol | number }}</strong>  mg/dL]</span>
+          </div>
+          <md-slider flex md-discrete ng-model="totalCholesterol" step="1" min="2" max="280" aria-label="Cholesterol">
+          </md-slider>
+        </div>
+      </div>
+    </div>
+    <div layout="row" ng-show="useLab">
+      <div flex-xs flex="100">
+        <div layout>
+          <div flex="40" layout layout-align="left center">
+            <span class="md-body-1">โคเรสเตอรอลเลว (LDL) [<strong>{{ ldl | number }}</strong> mg/dL]</span>
+          </div>
+          <md-slider flex md-discrete ng-model="ldl" step="1" min="0" max="220" aria-label="LDL">
+          </md-slider>
+        </div>
+      </div>
+    </div>
+    <div layout="row" ng-show="useLab">
+      <div flex-xs flex="100">
+        <div layout>
+          <div flex="40" layout layout-align="left center">
+            <span class="md-body-1">โคเรสเตอรอลดี (HDL) [<strong>{{ hdl | number }}</strong> mg/dL]</span>
+          </div>
+          <md-slider flex md-discrete ng-model="hdl" step="1" min="0" max="90" aria-label="HDL">
+          </md-slider>
+        </div>
+      </div>
+    </div>
+    <div layout="row" ng-show="!useLab">
+      <div flex-xs flex="100">
+        <div layout>
+          <div flex="40" layout layout-align="left center">
+            <span class="md-body-1">วัดรอบเอว [<strong>{{ waist | number }}</strong> นิ้ว]</span>
+          </div>
+          <md-slider flex md-discrete ng-model="waist" step="1" min="20" max="60" aria-label="Waist"></md-slider>
+        </div>
+      </div>
+    </div>
+    <div layout="row" ng-show="!useLab">
+      <div flex-xs flex="100">
+        <div layout>
+          <div flex="40" layout layout-align="left center">
+            <span class="md-body-1">ส่วนสูง [<strong>{{ height | number }}</strong> ซม.]</span>
+          </div>
+          <md-slider flex md-discrete ng-model="height" step="1" min="130" max="210" aria-label="Height">
+          </md-slider>
+        </div>
+      </div>
+    </div>
+
+    <div layout="row" layout-sm="column" layout-align="center center">
+      <md-button class="md-raised md-primary" aria-label="Go Back" ng-click="showResult($event)">
+        Process Risk
+      </md-button>
+    </div>
+
+
+  </md-card>
+
+</div>

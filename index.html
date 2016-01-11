@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Thai CV Risk Desktop Application</title>
+
+    <script src="./node_modules/angular/angular.js"></script>
+    <script src="./node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="./node_modules/angular-animate/angular-animate.min.js"></script>
+    <script src="./node_modules/angular-aria/angular-aria.min.js"></script>
+    <script src="./node_modules/angular-messages/angular-messages.min.js"></script>
+    <script src="./node_modules/angular-material/angular-material.js"></script>
+    <script src="./node_modules/angular-material-data-table/dist/md-data-table.js"></script>
+
+    <script src="./app/app.js"></script>
+    <script src="./app/ThaiCvRiskService.js"></script>
+    <script src="./app/MainController.js"></script>
+    <script src="./app/DialogController.js"></script>
+    <script src="./app/DisclaimerController.js"></script>
+    <script src="./app/BatchController.js"></script>
+
+    <link rel="stylesheet" href="./node_modules/angular-material/angular-material.min.css">
+    <link rel="stylesheet" href="./cssfont/material-icons.css">
+    <link rel="stylesheet" href="./node_modules/angular-material-data-table/dist/md-data-table.css">
+
+    <style>
+      body {
+        background-color: rgba(158, 158, 158, 0.16);
+      }
+      .green {
+        color: #558B2F;
+      }
+      .yellow {
+        color: #FFFF00;
+      }
+      .orange {
+        color: #FF5722;
+      }
+      .red {
+        color: #FF3D00;
+      }
+      .darkRed {
+        color: #BF360C;
+      }
+    </style>
+  </head>
+  <body  ng-app="app" ng-cloak>
+
+    <div ng-controller="MainController" layout="column" id="popupContainer">
+
+      <md-toolbar class="md-theme-indigo">
+        <div class="md-toolbar-tools">
+          <md-button class="md-icon-button" aria-label="Home" ng-click="toggleLeft()">
+            <i class="material-icons">menu</i>
+          </md-button>
+          <h2>
+            <span>Thai CV Risk Calculator</span>
+          </h2>
+
+        </div>
+      </md-toolbar>
+
+      <section layout="row" flex>
+        <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="false">
+          <md-toolbar class="md-theme-indigo">
+            <h1 class="md-toolbar-tools">เมนูหลัก</h1>
+          </md-toolbar>
+          <md-content>
+            <md-menu-content>
+              <md-menu-item>
+                <md-button ng-click="go('main')">
+                  <md-icon md-menu-align-target>
+                    <i class="material-icons">home</i>
+                  </md-icon>
+                  HOME
+                </md-button>
+              </md-menu-item>
+              <md-menu-item>
+                <md-button ng-click="go('batch')">
+                  <md-icon md-menu-align-target>
+                    <i class="material-icons">forward_30</i>
+                  </md-icon>
+                  Batch Process
+                </md-button>
+              </md-menu-item>
+              <md-menu-item>
+                <md-button ng-click="about()">
+                  <md-icon md-menu-align-target>
+                    <i class="material-icons">help_outline</i>
+                  </md-icon>
+                  เกี่ยวกับโปรแกรม
+                </md-button>
+              </md-menu-item>
+              <md-menu-item>
+                <md-button ng-click="showDisclaimer($event)">
+                  <md-icon md-menu-align-target>
+                    <i class="material-icons">warning</i>
+                  </md-icon>
+                  ข้อตกลงในการใช้โปรแกรม
+                </md-button>
+              </md-menu-item>
+            </md-menu-content>
+          </md-content>
+        </md-sidenav>
+      </section>
+
+      <ui-view></ui-view>
+
+
+    </div>
+
+  </body>
+</html>

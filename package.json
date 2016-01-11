@@ -1,0 +1,35 @@
+{
+  "name": "thai-cv-risk",
+  "version": "1.0.0",
+  "description": "Thai CV Risk Calculator",
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/siteslave/thai-cv-risk.git"
+  },
+  "keywords": [
+    "ThaiCVRisk",
+    "CVD",
+    "Risk",
+    "Health"
+  ],
+  "author": "Satit Rianpit <rianpit@gmail.com>",
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/siteslave/thai-cv-risk/issues"
+  },
+  "homepage": "https://github.com/siteslave/thai-cv-risk#readme",
+  "devDependencies": {},
+  "dependencies": {
+    "angular": "^1.4.8",
+    "angular-animate": "^1.4.8",
+    "angular-aria": "^1.4.8",
+    "angular-material": "^1.0.1",
+    "angular-material-data-table": "^0.9.4",
+    "angular-messages": "^1.4.8",
+    "angular-ui-router": "^0.2.15",
+    "csv-parse": "^1.0.1",
+    "lodash": "^3.10.1",
+    "open": "0.0.5"
+  }
+}

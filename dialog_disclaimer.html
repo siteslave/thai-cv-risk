@@ -1,0 +1,52 @@
+<md-dialog aria-label="ผลการประเมินความเสี่ยง"  ng-cloak>
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>ข้อตกลงการใช้งาน (Disclaimer)</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon aria-label="Close dialog">
+            <i class="material-icons">clear</i>
+          </md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content class="bg-gray">
+      <div class="md-dialog-content">
+
+        <md-card>
+          <md-card-header>
+            <md-card-avatar>
+              <md-icon class="md-avatar-icon">
+                <i class="material-icons">compare</i>
+              </md-icon>
+            </md-card-avatar>
+            <md-card-header-text>
+              <span class="mdi-title">Disclaimer</span>
+              <span class="md-subhead">ข้อตกลงสำหรับการใช้งานโปรแกรม</span>
+
+            </md-card-header-text>
+          </md-card-header>
+
+          <md-card-content>
+            <p>
+              ผลลัพธ์ที่ได้ เป็นการประเมินความเสี่ยงต่อการเจ็บป่วยหรือเสียชีวิตจากโรคเส้นเลือดหัวใจตีบตันและโรคเส้นเลือดสมองตีบตันในระยะเวลา 10 ปีข้างหน้า
+            </p>
+            <p>
+              ผลการประเมินและคำแนะนำที่ได้รับจากโปรแกรมนี้ไม่สามารถใช้แทนการตัดสินใจของแพทย์ได้ การตรวจรักษาเพิ่มเติมหรือการให้ยารักษาขึ้นอยู่กับดุลยพินิจของแพทย์และการปรึกษากันระหว่างแพทย์และตัวท่าน
+            </p>
+            <p>
+              ผลการประเมินนี้ห้ามนำไปใช้อ้างอิงในการค้า เช่น การทำประกันชีวิต และไม่สามารถใช้กับผู้ป่วยโรคลิ้นหัวใจหรือโรคหัวใจเต้นผิดจังหวะได้
+            </p>
+
+            <p>
+              โปรแกรมนี้ใช้สูตรการคำนวณจากเว็บไซต์ <a href="#" ng-click="openUrl('http://med.mahidol.ac.th/cvmc/thaicv')">http://med.mahidol.ac.th/cvmc/thaicv</a>
+            </p>
+          </md-card-content>
+
+        </md-card>
+
+      </div>
+    </md-dialog-content>
+  </form>
+</md-dialog>
